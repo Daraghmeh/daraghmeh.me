@@ -6,14 +6,14 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
 <url>
-  <loc>http://daraghmehdigital.com/</loc>
-  <lastmod>2015-10-22T18:59:04+00:00</lastmod>
+  <loc>http://daraghmeh.me/</loc>
+  <lastmod>2016-01-16T10:31:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://daraghmehdigital.com/document/Resume%20Mohammad%20Daraghmeh%20OCT_9_2015Send.pdf</loc>
-  <lastmod>2015-10-22T18:59:04+00:00</lastmod>
+  <loc>http://daraghmeh.me/document/Resume%20Mohammad%20Daraghmeh%20JAN_2016Send.pdf</loc>
+  <lastmod>2016-01-16T10:31:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.80</priority>
 </url>
