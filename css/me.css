@@ -705,14 +705,16 @@ aside.clients img {
 }
 
 section#contact {
-    background-color: #337ab7;
+    background-color: #fff;
+    
     background-image: url(../img/map-image.png);
     background-position: center;
     background-repeat: no-repeat;
+    margin-bottom: 70px;
 }
 
 section#contact .section-heading {
-    color: #fff;
+    color: black;
 }
 
 section#contact .form-group {
