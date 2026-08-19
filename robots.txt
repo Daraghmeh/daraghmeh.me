@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: 
-Disallow: /cgi-bin/
-Sitemap: http://daraghmeh.me/
+Allow: /
+
+Sitemap: https://www.daraghmeh.me/sitemap.xml
