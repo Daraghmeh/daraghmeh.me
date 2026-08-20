@@ -101,15 +101,16 @@ section{padding-block:var(--stack)}
 }
 @media (prefers-reduced-motion:reduce){.hero::before{animation:none}}
 :root[data-motion="reduce"] .hero::before{animation:none}
-.hero{padding-block:clamp(2.6rem,5vw,4.2rem) clamp(1.8rem,3.5vw,2.6rem)}
+.hero{padding-block:clamp(1.3rem,2.5vw,2.1rem) clamp(1.8rem,3.5vw,2.6rem)}
 .hero-grid{display:grid;gap:clamp(1.8rem,4vw,3.2rem);align-items:center}
 @media (min-width:56rem){.hero-grid{grid-template-columns:1fr 17rem}}
 .hero h1{font-size:clamp(2.4rem,1.4rem + 4.4vw,4.4rem);font-weight:700;letter-spacing:-.045em;color:var(--white)}
 .hero h1 b{font-weight:700;background:linear-gradient(100deg,#339595,#5FBFBF 45%,#A9B6CE);-webkit-background-clip:text;background-clip:text;color:transparent}
 .role{display:block;margin-block-start:.85rem;font-family:var(--body);font-weight:600;font-size:clamp(1rem,.95rem + .4vw,1.3rem);color:var(--accent)}
-.intro{font-size:clamp(1rem,.97rem + .28vw,1.12rem);max-inline-size:56ch;margin-block-start:1.15rem;color:var(--silver);line-height:1.72}
+.intro{font-size:clamp(1rem,.97rem + .28vw,1.12rem);max-inline-size:56ch;text-wrap:pretty;margin-block-start:1.15rem;color:var(--silver);line-height:1.72}
 .intro strong{color:var(--white);font-weight:600}
 .cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-block-start:1.6rem}
+.cta-center{justify-content:center}
 .portrait{display:block;inline-size:100%;block-size:auto;border-radius:16px;border:1px solid var(--line-2);box-shadow:0 18px 44px rgba(0,0,0,.45)}
 /* credential strip — hairlines, not glass cards */
 .facts{display:grid;grid-template-columns:1fr;margin-block-start:clamp(2rem,4vw,2.8rem);border-block-start:1px solid var(--line)}
@@ -127,7 +128,7 @@ section{padding-block:var(--stack)}
    Anchored on the résumé teal, widened with teal's warm complement so the
    set reads as a system rather than six shades of the same green. */
 :root{
-  --c-caps:#6C9BD2; --c-exp:#339595; --c-proj:#E0A458;
+  --c-caps:#6C9BD2; --c-exp:#E0A458; --c-proj:#339595;
   --c-rec:#D98A76;  --c-cont:#A9B6CE;
 }
 .tag{background:rgba(108,155,210,.16);color:var(--c-caps)}
@@ -158,7 +159,12 @@ section{padding-block:var(--stack)}
 .timeline::before{
   content:"";position:absolute;inset-block:0;inset-inline-start:2.4rem;inline-size:2px;
   background:linear-gradient(var(--accent),var(--t-light) 40%,var(--t-mid) 74%,var(--t-dark));opacity:.5;
+  transform:scaleY(0);transform-origin:top center;
+  transition:transform 1.6s cubic-bezier(.22,.61,.36,1);
 }
+.timeline.in::before{transform:scaleY(1)}
+@media (prefers-reduced-motion:reduce){.timeline::before{transform:none;transition:none}}
+:root[data-motion="reduce"] .timeline::before{transform:none;transition:none}
 .tl{position:relative;padding-block-end:1.5rem;padding-inline-start:7rem}
 /* logo badges — sized so the marks actually read */
 .tl-badge{
@@ -173,15 +179,18 @@ section{padding-block:var(--stack)}
 }
 .tl-card{background:var(--navy-2);border:1px solid var(--line);border-radius:var(--r);padding:1.5rem;text-align:start;transition:transform .3s cubic-bezier(.16,.84,.44,1),border-color .3s,box-shadow .3s}
 .tl-card:hover{transform:translateY(-4px);border-color:var(--line-2);box-shadow:0 18px 40px rgba(0,0,0,.35)}
-.tl:nth-child(1) .tl-card{border-block-start:4px solid var(--accent)}
-.tl:nth-child(2) .tl-card,.tl:nth-child(3) .tl-card{border-block-start:4px solid var(--t-mid)}
-.tl:nth-child(4) .tl-card{border-block-start:4px solid var(--t-light)}
-.tl:nth-child(5) .tl-card{border-block-start:4px solid var(--t-light)}
-.tl:nth-child(6) .tl-card{border-block-start:4px solid var(--accent-deep)}
-.tl:nth-child(7) .tl-card,.tl:nth-child(9) .tl-card{border-block-start:4px solid var(--t-dark)}
-.tl:nth-child(8) .tl-card{border-block-start:4px solid var(--t-light)}
-.tl:nth-child(10) .tl-card{border-block-start:4px solid var(--t-light)}
-.tl:nth-child(11) .tl-card{border-block-start:4px solid var(--accent-deep)}
+/* Accent bar per employer, drawn from each company's own brand colour. */
+.tl:nth-child(1) .tl-card{border-block-start:4px solid #8A6B54}            /* Daraghmeh Digital */
+.tl:nth-child(2) .tl-card{border-block-start:4px solid #F5F5F7}             /* Apple */
+.tl:nth-child(3) .tl-card,
+.tl:nth-child(4) .tl-card{border-block-start:4px solid #00A4EF}             /* Microsoft */
+.tl:nth-child(5) .tl-card{border-block-start:4px solid #4BA3DB}             /* Intuit */
+.tl:nth-child(6) .tl-card{border-block-start:4px solid var(--t-mid)}        /* IDI */
+.tl:nth-child(7) .tl-card,
+.tl:nth-child(9) .tl-card{border-block-start:4px solid #F76902}            /* RIT */
+.tl:nth-child(8) .tl-card{border-block-start:4px solid var(--t-light)}      /* EnerNOC */
+.tl:nth-child(10) .tl-card{border-block-start:4px solid var(--t-light)}     /* Liberty Science Center */
+.tl:nth-child(11) .tl-card{border-block-start:4px solid #C42F4F}           /* TranSystems */
 .tl-when{font-family:var(--body);font-size:.78rem;font-weight:700;color:var(--accent);letter-spacing:.05em;margin:0}
 .tl-when span{display:block;margin-block-start:.25rem;color:var(--dim);font-weight:500;font-size:.76rem;letter-spacing:0}
 .tl-card h3{font-size:1.2rem;font-weight:600;margin-block-start:.55rem}
@@ -193,10 +202,7 @@ section{padding-block:var(--stack)}
 .tl-card li::before{content:"";position:absolute;inset-inline-start:0;inset-block-start:.95rem;inline-size:6px;block-size:6px;border-radius:50%;background:var(--t-light)}
 .tl-card li b{color:var(--white);font-weight:700}
 .tl-card p{color:var(--silver);font-size:.94rem;margin:.9rem 0 0}
-/* Education — the last stop on the line, where it began. */
-.tl-edu{padding-block-end:0}
-.tl-edu .tl-badge{box-shadow:0 0 0 3px var(--navy),0 0 0 5px var(--accent),0 8px 22px rgba(0,0,0,.45)}
-.tl-edu .core{color:var(--silver);font-family:var(--display);font-style:italic}
+.tl:last-child{padding-block-end:0}
 
 @media (min-width:64rem){
 }
@@ -250,6 +256,7 @@ section{padding-block:var(--stack)}
 .caps>div:nth-child(4){--cap:#8FD3A8}
 .caps>div:nth-child(5){--cap:#D98A76}
 .caps>div:nth-child(6){--cap:#A9B6CE}
+.caps p b{color:var(--white);font-weight:600}
 .caps p{color:var(--silver);font-size:.92rem;margin:0;line-height:1.75}
 
 /* ---- contact ---- */
@@ -296,9 +303,10 @@ button[disabled]{opacity:.55;cursor:progress}
   transition:opacity .4s ease,transform .45s cubic-bezier(.16,.84,.44,1);
 }
 .rail.show{opacity:1;pointer-events:auto;transform:none}
-.rail-items{display:flex;align-items:flex-end;gap:clamp(.9rem,2.4vw,2.4rem);flex:1 1 auto;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.rail-items{display:flex;align-items:flex-end;justify-content:center;gap:clamp(.9rem,2.4vw,2.4rem);flex:1 1 auto;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .rail-items::-webkit-scrollbar{display:none}
-@media (min-width:48rem){.rail-items{justify-content:center;overflow:visible}}
+@media (min-width:48rem){.rail-items{overflow:visible}}
+@media (max-width:47.99rem){.rail-items{justify-content:flex-start;padding-inline-end:3.4rem}}
 .rail a{display:flex;flex-direction:column-reverse;align-items:center;gap:.5rem;text-decoration:none;padding:.2rem .35rem;color:var(--silver);flex:none}
 .rail-dot{inline-size:1.9rem;block-size:2px;border-radius:2px;background:var(--line-2);flex:none;transition:inline-size .34s cubic-bezier(.16,.84,.44,1),background-color .3s ease}
 .rail-label{font-family:var(--body);font-weight:600;font-size:.88rem;white-space:nowrap;transition:color .3s ease;text-shadow:0 1px 2px rgba(10,18,36,1),0 0 6px rgba(10,18,36,.95),0 0 14px rgba(10,18,36,.85)}
@@ -308,7 +316,7 @@ button[disabled]{opacity:.55;cursor:progress}
 .rail a.current .rail-label{color:var(--accent)}
 
 /* ---- accessibility dock ---- */
-.a11y{position:relative;flex:none;align-self:flex-end;margin-block-end:.1rem}
+.a11y{position:absolute;inset-inline-end:clamp(1rem,4vw,2.5rem);inset-block-end:.9rem;z-index:2}
 .a11y-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.42rem .68rem;border-radius:3px;border:1px solid var(--line-2);background:none;color:var(--dim);cursor:pointer;line-height:0;transition:color .25s ease,border-color .25s ease,transform .18s cubic-bezier(.16,.84,.44,1)}
 .a11y-btn:hover,.a11y-btn:focus-visible{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
 .a11y-btn[aria-expanded="true"]{color:var(--accent);border-color:var(--accent)}
@@ -343,6 +351,10 @@ button[disabled]{opacity:.55;cursor:progress}
 .a11y-reset{margin-block-start:1.1rem;inline-size:100%;padding:.6rem;font:700 .85rem var(--body);background:none;border:1px solid var(--line);border-radius:6px;color:var(--dim);cursor:pointer;transition:.2s}
 .a11y-reset:hover{border-color:var(--accent);color:var(--accent)}
 
+:root[data-plain="on"] body::before{display:none}
+:root[data-plain="on"] .hero::before{display:none}
+:root[data-plain="on"] body{background:var(--navy)}
+
 :root[data-contrast="high"]{--white:#FFFFFF;--silver:#E6EDF8;--dim:#C7D2E4;--line:#5A6D91;--line-2:#7E90B4;--accent:#6FD0D0;--t-light:#8FE0E0}
 :root[data-contrast="high"] body::before{opacity:.35}
 :root[data-motion="reduce"] *,:root[data-motion="reduce"] *::before,:root[data-motion="reduce"] *::after{animation:none!important;transition-duration:.01ms!important}
@@ -376,17 +388,18 @@ footer p{margin:0}
       <div class="a11y-group">
         <h3>Text size</h3>
         <div class="seg" role="group" aria-label="Text size">
-          <button type="button" class="s1" data-size="100" aria-pressed="true">A</button>
-          <button type="button" class="s2" data-size="115" aria-pressed="false">A</button>
-          <button type="button" class="s3" data-size="130" aria-pressed="false">A</button>
+          <button type="button" class="s1" data-size="90" aria-pressed="false">A</button>
+          <button type="button" class="s2" data-size="100" aria-pressed="true">A</button>
+          <button type="button" class="s3" data-size="115" aria-pressed="false">A</button>
         </div>
       </div>
       <div class="a11y-group">
         <h3>Display</h3>
-        <label class="sw"><span>High contrast</span><input type="checkbox" id="optContrast"><span class="track"></span></label>
-        <label class="sw"><span>Reduce motion</span><input type="checkbox" id="optMotion"><span class="track"></span></label>
-        <label class="sw"><span>Underline links</span><input type="checkbox" id="optLinks"><span class="track"></span></label>
-        <button class="a11y-reset" type="button" id="a11yReset">Reset all</button>
+                  <label class="sw"><span>High contrast</span><input type="checkbox" id="optContrast"><span class="track"></span></label>
+          <label class="sw"><span>Plain background</span><input type="checkbox" id="optPlain"><span class="track"></span></label>
+          <label class="sw"><span>Reduce motion</span><input type="checkbox" id="optMotion"><span class="track"></span></label>
+          <label class="sw"><span>Underline links</span><input type="checkbox" id="optLinks"><span class="track"></span></label>
+        <button class="a11y-reset" type="button" id="a11yReset">Reset All</button>
       </div>
     </div>
   </div>
@@ -399,9 +412,10 @@ footer p{margin:0}
       <div>        <h1>Mohammad <b>Daraghmeh</b></h1>
         <p class="role">Senior Technical Program Manager · AI/ML &amp; Big Data Infrastructure</p>
         <p class="intro">
-          I work a layer beneath the product — the platforms other engineering teams build on.
+          I work a layer beneath the product, the platforms other engineering teams build on.
           <strong>Over $125 million in infrastructure savings delivered</strong> across Apple's central
-          AI/ML platform and Microsoft's largest internal big-data engine.
+          AI/ML platform and Microsoft's largest internal big-data engine. Fifteen years across managed
+          streaming, capacity forecasting, sovereign-data compliance, and cloud migrations of 15,000+ instances.
         </p>
         <div class="cta">
           <a class="btn btn-solid" href="document/Resume_Mohammad_Daraghmeh_Aug_2026.pdf" target="_blank" rel="noopener">Download Resume</a>
@@ -423,15 +437,15 @@ footer p{margin:0}
   <section class="wrap" id="capabilities">
     <div class="sec-head">
       <span class="tag">Capabilities</span>
-      <h2>The ground I cover</h2>
+      <h2>What I bring</h2>
     </div>
     <div class="caps rv">
+      <div><h3>Education</h3><p><b>Rochester Institute of Technology</b> — B.S. Computer Engineering, Class of 2017 · Rochester, NY. Graduated with top marks and repeated Dean’s List honours.</p></div>
       <div><h3>Domain expertise</h3><p>AI/ML platforms · Capacity &amp; compute economics · Data compliance · Distributed data infrastructure · Enterprise streaming · Platform migration</p></div>
       <div><h3>Leadership</h3><p>Enterprise program ownership · Executive alignment · Resource optimisation · Risk management · Technical roadmapping</p></div>
       <div><h3>AI &amp; data</h3><p>Airflow · Databricks · Flink · Hadoop · Iceberg · Kafka · Kubeflow · MongoDB · Ollama · Ray · Spark · Trino · vLLM</p></div>
       <div><h3>Languages</h3><p>C# · Go · Java · Objective-C · Python · Scala · SCOPE · SQL · Swift · TypeScript</p></div>
       <div><h3>Platform ops</h3><p>AWS · Azure · Datadog · Docker · GCP · Helm · Kubernetes · Terraform</p></div>
-      <div><h3>Education</h3><p>Rochester Institute of Technology — B.S. Computer Engineering, 2017</p></div>
     </div>
   </section>
 
@@ -448,7 +462,7 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">July 2024 – Present<span>Seattle, WA</span></p>
           <h3>Daraghmeh Digital LLC<em>Founder &amp; Technical Consultant</em></h3>
-          <p class="core"><b>Side venture:</b> independent practice delivering digital infrastructure and e-commerce growth for clients across America. Repositioned in 2024 to AI consulting.</p>
+          <p class="core"><b>Side Venture:</b> independent practice delivering digital infrastructure and e-commerce growth for clients across America. Repositioned in 2024 to AI consulting.</p>
           <ul>
             <li>Serve as the technical counterpart for businesses from initial AI strategy to live deployment, cutting through vendor noise to match models to real requirements, shape product roadmaps, and bring enterprise discipline to capacity planning, unit costs, and operational readiness. <a href="https://www.daraghmehdigital.com/" target="_blank" rel="noopener">daraghmehdigital.com</a></li>
           </ul>
@@ -460,7 +474,7 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">Sept. 2022 – Apr. 2024<span>Seattle, WA</span></p>
           <h3>Apple<em>Senior Engineering Program Manager, AI/ML Platform</em></h3>
-          <p class="core"><b>Core achievement:</b> launched Kafka as a Service, the platform's first managed streaming tier, after identifying the gap and winning a Director-level mandate to build inside Apple's largest AI/ML data platform — owning instance strategy, tiered storage, and onboarding path, cutting compute cost 70% and storage cost 40% for over $25 million in savings.</p>
+          <p class="core"><b>Core Achievement:</b> launched Kafka as a Service, the platform's first managed streaming tier, after identifying the gap and winning a Director-level mandate to build inside Apple's largest AI/ML data platform — owning instance strategy, tiered storage, and onboarding path, cutting compute cost 70% and storage cost 40% for over $25 million in savings.</p>
           <ul>
             <li>Onboarded 10+ first-party product teams such as IS&amp;T, Maps, Search, Siri onto new offerings within Apple AI/ML Data Platform, negotiating requirements, migrations, and sequencing cross-organizations with competing roadmaps and interests.</li>
             <li>Led a 4-quarter migration of 15,000 instances to AWS spanning every dependent partner team, owning risk, dependency, and rollback planning to land zero downtime with full data integrity and feature parity. Over $30 million saved, and licensing dependencies were removed from the platform's critical path.</li>
@@ -474,7 +488,7 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">Apr. 2020 – Sept. 2022<span>Redmond, WA</span></p>
           <h3>Microsoft<em>Technical Program Manager II, Big Data Platform</em></h3>
-          <p class="core"><b>Core achievement:</b> delivered 4 feature releases for Cosmos, Microsoft's largest internal big data engine, and its SCOPE query language — cutting CPU processing time 25% and storage cost 50%, and adding support for compressed formats including ORC, Parquet, and SQL Tables.</p>
+          <p class="core"><b>Core Achievement:</b> delivered 4 feature releases for Cosmos, Microsoft's largest internal big data engine, and its SCOPE query language — cutting CPU processing time 25% and storage cost 50%, and adding support for compressed formats including ORC, Parquet, and SQL Tables.</p>
           <ul>
             <li>Shipped an ML-based capacity forecasting and alerting system predicting storage and compute shortfalls years ahead of exhaustion, avoiding $20 million in storage cost and averting 2 mass CPU failures in its first year of deployment.</li>
             <li>Cleared the regulatory path for Microsoft's largest internal data platform through 6 feature production releases, from GDPR annotation support to .NET Core runtime compatibility, keeping sovereign workloads live across Asia, Europe, and the Americas with zero downtime.</li>
@@ -487,7 +501,7 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">Feb. 2018 – Apr. 2020<span>Redmond, WA</span></p>
           <h3>Microsoft<em>Technical Program Manager I, Big Data Platform</em></h3>
-          <p class="core"><b>Core achievement:</b> drove company-wide infrastructure programs totaling over $50 million in savings across storage optimization, systems monitoring, and a new on-demand token model for Microsoft's largest internal big data engine, Cosmos, and proprietary language SCOPE.</p>
+          <p class="core"><b>Core Achievement:</b> drove company-wide infrastructure programs totaling over $50 million in savings across storage optimization, systems monitoring, and a new on-demand token model for Microsoft's largest internal big data engine, Cosmos, and proprietary language SCOPE.</p>
           <ul>
             <li>Consolidated a decade of fragmented SCOPE documentation and training into a single digital hub serving 50K+ active users, and built the storage/compute dashboards whose insight steered the global rollout of GDPR compliance data centers across Eastern Europe and China.</li>
           </ul>
@@ -499,7 +513,7 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">May 2017 – Aug 2017<span>Mountain View, CA</span></p>
           <h3>Intuit<em>Technical Product Manager Intern</em></h3>
-          <p>Co-invented an ML system predicting repayment probability and routing transactions in real time to the highest-yield payment method — granted as <b>U.S. Patent 10,956,925 B1</b>.</p>
+          <p class="core"><b>Core Achievement:</b> co-invented an ML system predicting repayment probability and routing transactions in real time to the highest-yield payment method — granted as U.S. Patent 10,956,925 B1.</p>
         </div>
       </article>
 
@@ -552,17 +566,8 @@ footer p{margin:0}
         <span class="tl-badge"><img src="img/experience/4.jpg" alt=""></span>
         <div class="tl-card">
           <p class="tl-when">Oct 2010 – June 2011<span>New Jersey</span></p>
-          <h3>TranSystems<em>Project Assistant</em></h3>
+          <h3>TranSystems<em>Project Assistant Intern</em></h3>
           <p>Documentation, drawings and field data for state Department of Transportation infrastructure projects.</p>
-        </div>
-      </article>
-
-      <article class="tl tl-edu rv">
-        <span class="tl-badge"><img src="img/experience/1.jpg" alt=""></span>
-        <div class="tl-card">
-          <p class="tl-when">Class of 2017<span>Rochester, NY</span></p>
-          <h3>Rochester Institute of Technology<em>B.S. Computer Engineering</em></h3>
-          <p class="core">Where the timeline starts.</p>
         </div>
       </article>
     </div>
@@ -571,7 +576,7 @@ footer p{margin:0}
   <section class="wrap" id="projects">
     <div class="sec-head">
       <span class="tag">Projects</span>
-      <h2>Things built outside the day job</h2>
+      <h2>Built by me</h2>
       <p>Hackathon wins, a senior design capstone, and a run of coursework that got out of hand.</p>
     </div>
     <div class="projects">
@@ -620,13 +625,13 @@ footer p{margin:0}
   <section class="wrap" id="recognition">
     <div class="sec-head">
       <span class="tag">Recognition</span>
-      <h2>Where the work got noticed</h2>
+      <h2>Patents and prizes</h2>
     </div>
     <div class="awards rv">
-      <div class="award"><span class="yr">Granted March 2021</span><h3>U.S. Patent 10,956,925 B1</h3><p>Performing Transactions Using Aggregate Payment Media. Co-inventor, Intuit Inc.</p></div>
+      <div class="award"><span class="yr">Granted March 2021</span><h3>U.S. Patent 10,956,925 B1</h3><p>Co-inventor at Intuit — an ML system that predicts repayment probability and routes each transaction to the highest-yield payment method.</p></div>
       <div class="award"><span class="yr">2021 · Top 5 worldwide</span><h3>Microsoft Global Hackathon</h3><p>Project MOVEMENT — awarded a prototype development grant.</p></div>
       <div class="award"><span class="yr">2019 · Top 5 worldwide</span><h3>Microsoft Global Hackathon</h3><p>NLP + SCOPE — natural language to code, before LLMs made it ordinary.</p></div>
-      <div class="award"><span class="yr">BrickHack · TigerTank</span><h3>Hackathon wins</h3><p>Winner, Bose SoundTouch API Challenge. Top-tier finalist at RIT's TigerTank.</p></div>
+      <div class="award"><span class="yr">BrickHack · RIT TigerTank</span><h3>Bose SoundTouch API Challenge</h3><p>Bose picked MusicShare for its sponsor prize — any speaker, driven entirely over SMS. Also a TigerTank finalist.</p></div>
     </div>
   </section>
 
@@ -634,12 +639,12 @@ footer p{margin:0}
   <section class="wrap" id="contact">
       <div class="sec-head">
         <span class="tag">Contact</span>
-        <h2>Let's talk</h2>
+        <h2>Get in touch</h2>
       </div>
       <div class="contact-panel">
         <div class="rv">
-          <p class="lede">Open to senior technical program management roles in AI/ML and data infrastructure. A role, a project, or a question — the form reaches me directly and I read every message.</p>
-          <div class="cta" style="margin-block-start:1.4rem">
+          <p class="lede">Open to senior technical program management roles in AI/ML and data infrastructure. A role, a project, a question — the form reaches me directly and I read every message.</p>
+          <div class="cta cta-center" style="margin-block-start:1.4rem">
             <a class="btn btn-solid" href="document/Resume_Mohammad_Daraghmeh_Aug_2026.pdf" target="_blank" rel="noopener">Download Resume</a>
           </div>
           <ul class="direct">
@@ -677,11 +682,11 @@ footer p{margin:0}
                   <option value="Something else">Something else</option>
                 </select>
               </div>
-              <div class="field fspan"><label for="f-msg">Message <span class="req">*</span></label><textarea id="f-msg" name="message" required placeholder="A sentence or two is plenty."></textarea><span class="err" data-for="f-msg"></span></div>
+              <div class="field fspan"><label for="f-msg">Message <span class="req">*</span></label><textarea id="f-msg" name="message" required placeholder="A paragraph or two is plenty."></textarea><span class="err" data-for="f-msg"></span></div>
             </div>
             <div class="form-foot">
               <p class="privacy">No cookies, no analytics, no list. Your message is used to reply to you and nothing else.</p>
-              <button class="btn btn-solid" type="submit" id="send">Send message</button>
+              <button class="btn btn-solid" type="submit" id="send">Send Message</button>
             </div>
             <div class="status" id="status" role="status" aria-live="polite"></div>
           </form>
@@ -707,6 +712,17 @@ footer p{margin:0}
     }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
     rv.forEach(function (el) { io.observe(el); });
   } else { rv.forEach(function (el) { el.classList.add("in"); }); }
+
+  /* Timeline spine draws itself once the section is reached. */
+  var tline = document.querySelector(".timeline");
+  if (tline) {
+    if ("IntersectionObserver" in window && !reduced) {
+      var tio = new IntersectionObserver(function (e) {
+        e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add("in"); tio.unobserve(x.target); } });
+      }, { rootMargin: "0px 0px -20% 0px", threshold: 0 });
+      tio.observe(tline);
+    } else { tline.classList.add("in"); }
+  }
 
   /* ---- section bar ---- */
   var rail = document.getElementById("rail");
@@ -747,7 +763,8 @@ footer p{margin:0}
   var TOGGLES = [
     { id: "optContrast", attr: "data-contrast", on: "high" },
     { id: "optMotion",   attr: "data-motion",   on: "reduce" },
-    { id: "optLinks",    attr: "data-links",    on: "on" }
+    { id: "optLinks",    attr: "data-links",    on: "on" },
+      { id: "optPlain",    attr: "data-plain",    on: "on" }
   ];
   TOGGLES.forEach(function (t) {
     var box = document.getElementById(t.id);
@@ -799,7 +816,7 @@ footer p{margin:0}
   function setErr(i, m) { var s = form.querySelector('.err[data-for="' + i.id + '"]'); if (s) s.textContent = m || ""; i.setAttribute("aria-invalid", m ? "true" : "false"); }
   function validate() {
     var ok = true, first = null;
-    [["f-name","Please add your name."],["f-email","A valid email, so I can reply."],["f-msg","A sentence or two is plenty."]].forEach(function (p) {
+    [["f-name","Please add your name."],["f-email","A valid email, so I can reply."],["f-msg","A paragraph or two is plenty."]].forEach(function (p) {
       var i = document.getElementById(p[0]), v = i.value.trim();
       var bad = !v || (i.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v));
       setErr(i, bad ? p[1] : ""); if (bad) { ok = false; if (!first) first = i; }
