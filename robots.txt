@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.daraghmeh.me/sitemap.xml
+Sitemap: https://daraghmeh.me/sitemap.xml
