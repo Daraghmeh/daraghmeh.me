@@ -13,6 +13,38 @@
 <meta property="og:image" content="https://www.daraghmeh.me/img/portrait.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A1224">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://www.daraghmeh.me/#person",
+    "name": "Mohammad Daraghmeh",
+    "givenName": "Mohammad",
+    "familyName": "Daraghmeh",
+    "jobTitle": "Senior Technical Program Manager",
+    "description": "Senior Technical Program Manager in AI/ML and big-data infrastructure. Over $125 million in infrastructure savings delivered across Apple's central AI/ML platform and Microsoft's largest internal big-data engine.",
+    "url": "https://www.daraghmeh.me/",
+    "image": "https://www.daraghmeh.me/img/portrait.jpg",
+    "email": "daraghmehM@outlook.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/daraghmehM",
+      "https://github.com/Daraghmeh",
+      "https://www.daraghmehdigital.com/"
+    ],
+    "address": { "@type": "PostalAddress", "addressLocality": "Seattle", "addressRegion": "WA", "addressCountry": "US" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Rochester Institute of Technology" },
+    "worksFor": { "@type": "Organization", "name": "Daraghmeh Digital LLC", "url": "https://www.daraghmehdigital.com/" },
+    "knowsAbout": [
+      "AI/ML platforms","Capacity and compute economics","Data compliance",
+      "Distributed data infrastructure","Enterprise streaming","Platform migration",
+      "Technical program management","Cloud migration"
+    ]
+  }
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -685,7 +717,7 @@ footer p{margin:0}
               <div class="field fspan"><label for="f-msg">Message <span class="req">*</span></label><textarea id="f-msg" name="message" required placeholder="A paragraph or two is plenty."></textarea><span class="err" data-for="f-msg"></span></div>
             </div>
             <div class="form-foot">
-              <p class="privacy">No cookies, no analytics, no list. Your message is used to reply to you and nothing else.</p>
+              <p class="privacy">No cookies, no cross-site tracking, no mailing list. Your message is used to reply to you and nothing else.</p>
               <button class="btn btn-solid" type="submit" id="send">Send Message</button>
             </div>
             <div class="status" id="status" role="status" aria-live="polite"></div>
@@ -854,5 +886,8 @@ footer p{margin:0}
   document.getElementById("yr").textContent = new Date().getFullYear();
 })();
 </script>
+
+<!-- Cloudflare Web Analytics: cookieless, no cross-site tracking. -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5b103c41e0d04825a32266e5e6f8db3d"}'></script>
 </body>
 </html>
