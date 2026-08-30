@@ -284,9 +284,11 @@ section + section{border-block-start:1px solid var(--line)}
 .caps>div::after{content:"";position:absolute;inset-block-start:0;inset-inline:0;block-size:2px;background:var(--cap);transform:scaleX(0);transform-origin:left center;transition:transform .45s cubic-bezier(.16,.84,.44,1)}
 .caps>div:hover{transform:translateY(-6px);border-color:var(--cap);box-shadow:0 18px 40px rgba(0,0,0,.42)}
 .caps>div:hover::after{transform:scaleX(1)}
-.caps h3{font-family:var(--body);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cap);margin-block-end:.75rem}
+.mid{font-size:1.7em;line-height:0;vertical-align:-.217em;padding-inline:.06em;opacity:.9}
+
+.caps h3{font-family:var(--body);font-size:.82rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cap);margin-block-end:.75rem}
 .caps>div:nth-child(1){--cap:#5FBFBF}
-.caps>div:nth-child(2){--cap:#6C9BD2}
+.caps>div:nth-child(2){--cap:#A78BFA}
 .caps>div:nth-child(3){--cap:#D99A5E}
 .caps>div:nth-child(4){--cap:#8FD3A8}
 .caps>div:nth-child(5){--cap:#D98A76}
@@ -301,7 +303,9 @@ section + section{border-block-start:1px solid var(--line)}
 
 
 
-.contact-panel .lede{color:var(--silver);margin:0}
+.contact-panel .lede{color:var(--silver);margin:0;font-size:1.06rem;line-height:1.6}
+.contact-panel .lede strong{color:var(--white);font-weight:600}
+.contact-panel .lede-note{color:var(--dim);margin:.7rem 0 0;font-size:.94rem;line-height:1.6}
 .fgrid{display:grid;gap:1.1rem}
 @media (min-width:44rem){.fgrid{grid-template-columns:1fr 1fr}.fspan{grid-column:1/-1}}
 .field label{display:block;font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-block-end:.45rem}
@@ -444,7 +448,7 @@ footer p{margin:0}
   <header class="hero">
     <div class="wrap hero-grid">
       <div>        <h1>Mohammad <b>Daraghmeh</b></h1>
-        <p class="role">Senior Technical Program Manager · AI/ML &amp; Big Data Infrastructure</p>
+        <p class="role">Senior Technical Program Manager <span class="mid">·</span> AI/ML &amp; Big Data Infrastructure</p>
         <p class="intro">
           I work a layer beneath the product, the platforms other engineering teams build on.
           <strong>Over $125 million in infrastructure savings delivered</strong> across Apple's central
@@ -474,12 +478,12 @@ footer p{margin:0}
       <h2>What I bring</h2>
     </div>
     <div class="caps rv">
-      <div><h3>Education</h3><p><b>Rochester Institute of Technology</b> — B.S. Computer Engineering, Class of 2017 · Rochester, NY. Graduated with top marks and repeated Dean’s List honours.</p></div>
-      <div><h3>Domain expertise</h3><p>AI/ML platforms · Capacity &amp; compute economics · Data compliance · Distributed data infrastructure · Enterprise streaming · Platform migration</p></div>
-      <div><h3>Leadership</h3><p>Enterprise program ownership · Executive alignment · Resource optimisation · Risk management · Technical roadmapping</p></div>
-      <div><h3>AI &amp; data</h3><p>Airflow · Databricks · Flink · Hadoop · Iceberg · Kafka · Kubeflow · MongoDB · Ollama · Ray · Spark · Trino · vLLM</p></div>
-      <div><h3>Languages</h3><p>C# · Go · Java · Objective-C · Python · Scala · SCOPE · SQL · Swift · TypeScript</p></div>
-      <div><h3>Platform ops</h3><p>AWS · Azure · Datadog · Docker · GCP · Helm · Kubernetes · Terraform</p></div>
+      <div><h3>Education</h3><p><b>Rochester Institute of Technology</b> — B.S. Computer Engineering, Class of 2017 <span class="mid">·</span> Rochester, NY. Graduated with top marks and repeated Dean’s List honours.</p></div>
+      <div><h3>Domain expertise</h3><p>AI/ML platforms <span class="mid">·</span> Capacity &amp; compute economics <span class="mid">·</span> Data compliance <span class="mid">·</span> Distributed data infrastructure <span class="mid">·</span> Enterprise streaming <span class="mid">·</span> Platform migration</p></div>
+      <div><h3>Leadership</h3><p>Enterprise program ownership <span class="mid">·</span> Executive alignment <span class="mid">·</span> Resource optimisation <span class="mid">·</span> Risk management <span class="mid">·</span> Technical roadmapping</p></div>
+      <div><h3>AI &amp; data</h3><p>Airflow <span class="mid">·</span> Databricks <span class="mid">·</span> Flink <span class="mid">·</span> Hadoop <span class="mid">·</span> Iceberg <span class="mid">·</span> Kafka <span class="mid">·</span> Kubeflow <span class="mid">·</span> MongoDB <span class="mid">·</span> Ollama <span class="mid">·</span> Ray <span class="mid">·</span> Spark <span class="mid">·</span> Trino <span class="mid">·</span> vLLM</p></div>
+      <div><h3>Languages</h3><p>C# <span class="mid">·</span> Go <span class="mid">·</span> Java <span class="mid">·</span> Objective-C <span class="mid">·</span> Python <span class="mid">·</span> Scala <span class="mid">·</span> SCOPE <span class="mid">·</span> SQL <span class="mid">·</span> Swift <span class="mid">·</span> TypeScript</p></div>
+      <div><h3>Platform ops</h3><p>AWS <span class="mid">·</span> Azure <span class="mid">·</span> Datadog <span class="mid">·</span> Docker <span class="mid">·</span> GCP <span class="mid">·</span> Helm <span class="mid">·</span> Kubernetes <span class="mid">·</span> Terraform</p></div>
     </div>
   </section>
 
@@ -545,18 +549,24 @@ footer p{margin:0}
       <article class="tl rv">
         <span class="tl-badge"><img src="img/experience/6.jpg" alt=""></span>
         <div class="tl-card">
-          <p class="tl-when">May 2017 – Aug 2017<span>Mountain View, CA</span></p>
+          <p class="tl-when">May 2017 – Aug 2017<span>San Diego, CA</span></p>
           <h3>Intuit<em>Technical Product Manager Intern</em></h3>
-          <p class="core"><b>Core Achievement:</b> co-invented an ML system predicting repayment probability and routing transactions in real time to the highest-yield payment method — granted as U.S. Patent 10,956,925 B1.</p>
+          <p class="core"><b>Core Achievement:</b> co-invented an ML system that predicts repayment probability from historical account data and automatically routes each transaction in real time to the highest-yield payment method — granted as U.S. Patent 10,956,925 B1.</p>
+            <ul>
+              <li>Led cross-functional R&amp;D teams of engineers, designers, researchers, and legal counsel on machine-learning initiatives, taking FinTech product concepts through iterative prototyping, user testing, and A/B testing.</li>
+            </ul>
         </div>
       </article>
 
       <article class="tl rv">
         <span class="tl-badge"><img src="img/experience/IDI.png" alt=""></span>
         <div class="tl-card">
-          <p class="tl-when">June 2015 – Dec 2015<span>Rochester, NY</span></p>
+          <p class="tl-when">June 2015 – Dec 2015<span>Victor, NY</span></p>
           <h3>IDI Billing Solutions<em>Software / Quality Assurance Engineer</em></h3>
-          <p>Automated test suites and tooling for a telecom billing platform, validating releases against complex rating and invoicing logic.</p>
+          <p class="core"><b>Core Achievement:</b> built Hal0, a complete server interface dashboard, and took the lead role defining and implementing QA processes across multiple web-service platforms.</p>
+            <ul>
+              <li>Wrote, executed and maintained the automation test suite for CostGuard, a client/server telecom billing platform, self-teaching PowerShell and C# to do it.</li>
+            </ul>
         </div>
       </article>
 
@@ -565,7 +575,10 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">Aug 2014 – June 2015<span>Rochester, NY</span></p>
           <h3>Rochester Institute of Technology<em>Webmaster</em></h3>
-          <p>Owned development and maintenance of departmental web properties, front-end builds through content operations.</p>
+          <p class="core"><b>Core Achievement:</b> sole developer of the front-end and back-end for two RIT facilities — the Simone Center for Innovation and Entrepreneurship, and the F&amp;A project, Behind the Bricks.</p>
+            <ul>
+              <li>Managed and maintained the databases, functionality, security and uptime of both platforms.</li>
+            </ul>
         </div>
       </article>
 
@@ -574,7 +587,10 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">Jan 2014 – July 2014<span>Boston, MA</span></p>
           <h3>EnerNOC<em>Software Engineer Intern</em></h3>
-          <p>Internal tooling for an energy demand-response platform, working across data collection and reporting.</p>
+          <p class="core"><b>Core Achievement:</b> hardware and software R&amp;D on PowerTalk, a real-time XMPP communication hub for smart-meter devices, including its online implementation in Play Framework, Scala and Java.</p>
+            <ul>
+              <li>Maintained the team's GitHub repositories, picking up JavaScript, CoffeeScript, Scala and XMPP on the job.</li>
+            </ul>
         </div>
       </article>
 
@@ -583,7 +599,10 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">Feb 2013 – May 2016<span>Rochester, NY</span></p>
           <h3>Rochester Institute of Technology<em>Social Media Analyst</em></h3>
-          <p>Analytics and content strategy across institutional channels, reporting engagement and reach to university stakeholders.</p>
+          <p class="core"><b>Core Achievement:</b> built an engaged online community across Facebook, Reddit and Twitter to over 9,000 followers through original content.</p>
+            <ul>
+              <li>Owned analytics and content strategy across institutional channels, reporting engagement and reach to university stakeholders.</li>
+            </ul>
         </div>
       </article>
 
@@ -615,19 +634,19 @@ footer p{margin:0}
     </div>
     <div class="projects">
       <article class="proj rv">
-        <span class="tech">Computer vision · ML</span>
+        <span class="tech">Computer vision <span class="mid">·</span> ML</span>
         <h3>Project MOVEMENT</h3>
         <p>Real-time form analysis for everyday activity from nothing but a phone camera. Top 5 worldwide at the Microsoft Global Hackathon, presented to Satya Nadella's executive team.</p>
         <div class="proj-links"><a href="https://youtu.be/Nr2sPDDf0PQ" target="_blank" rel="noopener">Demo</a></div>
       </article>
       <article class="proj rv">
-        <span class="tech">Vision AI · Robotics</span>
+        <span class="tech">Vision AI <span class="mid">·</span> Robotics</span>
         <h3>Project R.I.C.K.</h3>
         <p>Senior design capstone. Translates arm and finger movement, captured by camera, into machine code driving a 6-axis 3D-printed robotic arm.</p>
         <div class="proj-links"><a href="document/rick-proposal.pdf" target="_blank" rel="noopener">Proposal</a><a href="document/rick-poster.pdf" target="_blank" rel="noopener">Poster</a></div>
       </article>
       <article class="proj rv">
-        <span class="tech">Python · Bose API</span>
+        <span class="tech">Python <span class="mid">·</span> Bose API</span>
         <h3>MusicShare</h3>
         <p>Control any Bose SoundTouch speaker from anywhere, entirely over SMS. Winner of the Bose SoundTouch API Challenge at BrickHack.</p>
         <div class="proj-links">
@@ -636,7 +655,7 @@ footer p{margin:0}
         </div>
       </article>
       <article class="proj rv">
-        <span class="tech">Python · AI</span>
+        <span class="tech">Python <span class="mid">·</span> AI</span>
         <h3>Quoridor</h3>
         <p>An AI built to play Quoridor, doing adversarial search over a board whose topology changes every single move.</p>
         <div class="proj-links"><a href="https://daraghmeh.github.io/Quoridor/" target="_blank" rel="noopener">Live</a></div>
@@ -659,13 +678,13 @@ footer p{margin:0}
   <section class="wrap" id="recognition">
     <div class="sec-head">
       <span class="tag">Recognition</span>
-      <h2>Patents and prizes</h2>
+      <h2>Patents and Prizes</h2>
     </div>
     <div class="awards rv">
       <div class="award"><span class="yr">Granted March 2021</span><h3>U.S. Patent 10,956,925 B1</h3><p>Co-inventor at Intuit — an ML system that predicts repayment probability and routes each transaction to the highest-yield payment method.</p></div>
-      <div class="award"><span class="yr">2021 · Top 5 worldwide</span><h3>Microsoft Global Hackathon</h3><p>Project MOVEMENT — awarded a prototype development grant.</p></div>
-      <div class="award"><span class="yr">2019 · Top 5 worldwide</span><h3>Microsoft Global Hackathon</h3><p>NLP + SCOPE — natural language to code, before LLMs made it ordinary.</p></div>
-      <div class="award"><span class="yr">BrickHack · RIT TigerTank</span><h3>Bose SoundTouch API Challenge</h3><p>Bose picked MusicShare for its sponsor prize — any speaker, driven entirely over SMS. Also a TigerTank finalist.</p></div>
+      <div class="award"><span class="yr">2021 <span class="mid">·</span> Top 5 worldwide</span><h3>Microsoft Global Hackathon</h3><p>Project MOVEMENT — awarded a prototype development grant.</p></div>
+      <div class="award"><span class="yr">2019 <span class="mid">·</span> Top 5 worldwide</span><h3>Microsoft Global Hackathon</h3><p>NLP + SCOPE — natural language to code, before LLMs made it ordinary.</p></div>
+      <div class="award"><span class="yr">BrickHack <span class="mid">·</span> RIT TigerTank</span><h3>Bose SoundTouch API Challenge</h3><p>Bose picked MusicShare for its sponsor prize — any speaker, driven entirely over SMS. FlickShare took RIT’s TigerTank.</p></div>
     </div>
   </section>
 
@@ -677,7 +696,8 @@ footer p{margin:0}
       </div>
       <div class="contact-panel">
         <div class="rv">
-          <p class="lede">Open to senior technical program management roles in AI/ML and data infrastructure. A role, a project, a question — the form reaches me directly and I read every message.</p>
+          <p class="lede"><strong>Open to senior technical program management roles</strong> in AI/ML and data infrastructure.</p>
+          <p class="lede-note">A role, a project, or a question — it reaches me directly, and I read every message.</p>
           <div class="cta cta-center" style="margin-block-start:1.4rem">
             <a class="btn btn-solid" href="document/Resume_Mohammad_Daraghmeh_Aug_2026.pdf" target="_blank" rel="noopener">Download Resume</a>
           </div>
@@ -730,7 +750,7 @@ footer p{margin:0}
 </main>
 
 <footer class="wrap">
-  <p>Mohammad Daraghmeh · Seattle, Washington · &copy; <span id="yr">2026</span></p>
+  <p>Mohammad Daraghmeh <span class="mid">·</span> &copy; <span id="yr">2026</span></p>
 </footer>
 
 <script>
