@@ -163,7 +163,7 @@ section + section{border-block-start:1px solid var(--line)}
    Anchored on the résumé teal, widened with teal's warm complement so the
    set reads as a system rather than six shades of the same green. */
 :root{
-  --c-caps:#6C9BD2; --c-exp:#E0A458; --c-proj:#339595;
+  --c-intro:#6FD0D0; --c-caps:#6C9BD2; --c-exp:#E0A458; --c-proj:#339595;
   --c-rec:#D98A76;  --c-cont:#A9B6CE;
 }
 .tag{background:rgba(108,155,210,.16);color:var(--c-caps)}
@@ -173,6 +173,8 @@ section + section{border-block-start:1px solid var(--line)}
 #recognition  .tag{background:rgba(217,138,118,.16);color:var(--c-rec)}
 #contact      .tag{background:rgba(169,182,206,.16);color:var(--c-cont)}
 /* rail indicators inherit the same color, so nav and section agree */
+.rail a[href="#intro"].current .rail-dot{background:var(--c-intro)}
+.rail a[href="#intro"].current .rail-label{color:var(--c-intro)}
 .rail a[href="#capabilities"].current .rail-dot{background:var(--c-caps)}
 .rail a[href="#capabilities"].current .rail-label{color:var(--c-caps)}
 .rail a[href="#experience"].current .rail-dot{background:var(--c-exp)}
@@ -287,9 +289,9 @@ section + section{border-block-start:1px solid var(--line)}
 .mid{font-size:1.7em;line-height:0;vertical-align:-.217em;padding-inline:.06em;opacity:.9}
 
 .caps h3{font-family:var(--body);font-size:.82rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cap);margin-block-end:.75rem}
-.caps>div:nth-child(1){--cap:#F5A524}
+.caps>div:nth-child(1){--cap:#F76902}
 .caps>div:nth-child(2){--cap:#C084FC}
-.caps>div:nth-child(3){--cap:#2DD4BF}
+.caps>div:nth-child(3){--cap:#60A5FA}
 .caps>div:nth-child(4){--cap:#4ADE80}
 .caps>div:nth-child(5){--cap:#FB7185}
 .caps>div:nth-child(6){--cap:#7DD3FC}
@@ -409,6 +411,7 @@ footer p{margin:0}
 
 <nav class="rail" id="rail" aria-label="Sections">
   <div class="rail-items">
+    <a href="#intro"><span class="rail-dot"></span><span class="rail-label">Intro</span></a>
     <a href="#capabilities"><span class="rail-dot"></span><span class="rail-label">Capabilities</span></a>
     <a href="#experience"><span class="rail-dot"></span><span class="rail-label">Experience</span></a>
     <a href="#projects"><span class="rail-dot"></span><span class="rail-label">Projects</span></a>
@@ -445,7 +448,7 @@ footer p{margin:0}
 
 <main id="main">
 
-  <header class="hero">
+  <header class="hero" id="intro">
     <div class="wrap hero-grid">
       <div>        <h1>Mohammad <b>Daraghmeh</b></h1>
         <p class="role">Senior Technical Program Manager <span class="mid">·</span> AI/ML &amp; Big Data Infrastructure</p>
@@ -479,9 +482,9 @@ footer p{margin:0}
       <h2>What I bring</h2>
     </div>
     <div class="caps rv">
-      <div><h3>Leadership</h3><p>Enterprise Program Ownership <span class="mid">·</span> Executive Alignment <span class="mid">·</span> Resource Optimization <span class="mid">·</span> Risk Management <span class="mid">·</span> Technical Roadmapping</p></div>
-      <div><h3>Domain Expertise</h3><p>AI/ML Platforms <span class="mid">·</span> Capacity &amp; Compute Economics <span class="mid">·</span> Data Compliance <span class="mid">·</span> Distributed Data Infrastructure <span class="mid">·</span> Enterprise Streaming <span class="mid">·</span> Platform Migration</p></div>
       <div><h3>Education</h3><p><b>Rochester Institute of Technology</b> — B.S. Computer Engineering, Class of 2017 <span class="mid">·</span> Rochester, NY. Graduated with top marks and repeated Dean’s List honors.</p></div>
+      <div><h3>Domain Expertise</h3><p>AI/ML Platforms <span class="mid">·</span> Capacity &amp; Compute Economics <span class="mid">·</span> Data Compliance <span class="mid">·</span> Distributed Data Infrastructure <span class="mid">·</span> Enterprise Streaming <span class="mid">·</span> Platform Migration</p></div>
+      <div><h3>Leadership</h3><p>Enterprise Program Ownership <span class="mid">·</span> Executive Alignment <span class="mid">·</span> Resource Optimization <span class="mid">·</span> Risk Management <span class="mid">·</span> Technical Roadmapping</p></div>
       <div><h3>AI &amp; Data</h3><p>Airflow <span class="mid">·</span> Databricks <span class="mid">·</span> Flink <span class="mid">·</span> Hadoop <span class="mid">·</span> Iceberg <span class="mid">·</span> Kafka <span class="mid">·</span> Kubeflow <span class="mid">·</span> MongoDB <span class="mid">·</span> Ollama <span class="mid">·</span> Ray <span class="mid">·</span> Spark <span class="mid">·</span> Trino <span class="mid">·</span> vLLM</p></div>
       <div><h3>Languages</h3><p>C# <span class="mid">·</span> Go <span class="mid">·</span> Java <span class="mid">·</span> Objective-C <span class="mid">·</span> Python <span class="mid">·</span> Scala <span class="mid">·</span> SCOPE <span class="mid">·</span> SQL <span class="mid">·</span> Swift <span class="mid">·</span> TypeScript</p></div>
       <div><h3>Platform Ops</h3><p>AWS <span class="mid">·</span> Azure <span class="mid">·</span> Datadog <span class="mid">·</span> Docker <span class="mid">·</span> GCP <span class="mid">·</span> Helm <span class="mid">·</span> Kubernetes <span class="mid">·</span> Terraform</p></div>
@@ -501,7 +504,7 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">July 2024 – Present<span>Seattle, WA</span></p>
           <h3>Daraghmeh Digital LLC<em>Founder &amp; Technical Consultant</em></h3>
-          <p class="core"><b>Side Venture:</b> independent practice delivering digital infrastructure and e-commerce growth for clients across America. Repositioned in 2024 to AI consulting.</p>
+          <p class="core"><b>Side Venture:</b> Independent practice delivering digital infrastructure and e-commerce growth for clients across America. Repositioned in 2024 to AI consulting.</p>
           <ul>
             <li>Serve as the technical counterpart for businesses from initial AI strategy to live deployment, cutting through vendor noise to match models to real requirements, shape product roadmaps, and bring enterprise discipline to capacity planning, unit costs, and operational readiness. <a href="https://www.daraghmehdigital.com/" target="_blank" rel="noopener">daraghmehdigital.com</a></li>
           </ul>
@@ -513,7 +516,7 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">Sept. 2022 – Apr. 2024<span>Seattle, WA</span></p>
           <h3>Apple<em>Senior Engineering Program Manager, AI/ML Platform</em></h3>
-          <p class="core"><b>Core Achievement:</b> launched Kafka as a Service, the platform's first managed streaming tier, after identifying the gap and winning a Director-level mandate to build inside Apple's largest AI/ML data platform — owning instance strategy, tiered storage, and onboarding path, cutting compute cost 70% and storage cost 40% for over $25 million in savings.</p>
+          <p class="core"><b>Core Achievement:</b> Launched Kafka as a Service, the platform's first managed streaming tier, after identifying the gap and winning a Director-level mandate to build inside Apple's largest AI/ML data platform — owning instance strategy, tiered storage, and onboarding path, cutting compute cost 70% and storage cost 40% for over $25 million in savings.</p>
           <ul>
             <li>Onboarded 10+ first-party product teams such as IS&amp;T, Maps, Search, Siri onto new offerings within Apple AI/ML Data Platform, negotiating requirements, migrations, and sequencing cross-organizations with competing roadmaps and interests.</li>
             <li>Led a 4-quarter migration of 15,000 instances to AWS spanning every dependent partner team, owning risk, dependency, and rollback planning to land zero downtime with full data integrity and feature parity. Over $30 million saved, and licensing dependencies were removed from the platform's critical path.</li>
@@ -527,7 +530,7 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">Apr. 2020 – Sept. 2022<span>Redmond, WA</span></p>
           <h3>Microsoft<em>Technical Program Manager II, Big Data Platform</em></h3>
-          <p class="core"><b>Core Achievement:</b> delivered 4 feature releases for Cosmos, Microsoft's largest internal big data engine, and its SCOPE query language — cutting CPU processing time 25% and storage cost 50%, and adding support for compressed formats including ORC, Parquet, and SQL Tables.</p>
+          <p class="core"><b>Core Achievement:</b> Delivered 4 feature releases for Cosmos, Microsoft's largest internal big data engine, and its SCOPE query language — cutting CPU processing time 25% and storage cost 50%, and adding support for compressed formats including ORC, Parquet, and SQL Tables.</p>
           <ul>
             <li>Shipped an ML-based capacity forecasting and alerting system predicting storage and compute shortfalls years ahead of exhaustion, avoiding $20 million in storage cost and averting 2 mass CPU failures in its first year of deployment.</li>
             <li>Cleared the regulatory path for Microsoft's largest internal data platform through 6 feature production releases, from GDPR annotation support to .NET Core runtime compatibility, keeping sovereign workloads live across Asia, Europe, and the Americas with zero downtime.</li>
@@ -540,7 +543,7 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">Feb. 2018 – Apr. 2020<span>Redmond, WA</span></p>
           <h3>Microsoft<em>Technical Program Manager I, Big Data Platform</em></h3>
-          <p class="core"><b>Core Achievement:</b> drove company-wide infrastructure programs totaling over $50 million in savings across storage optimization, systems monitoring, and a new on-demand token model for Microsoft's largest internal big data engine, Cosmos, and proprietary language SCOPE.</p>
+          <p class="core"><b>Core Achievement:</b> Drove company-wide infrastructure programs totaling over $50 million in savings across storage optimization, systems monitoring, and a new on-demand token model for Microsoft's largest internal big data engine, Cosmos, and proprietary language SCOPE.</p>
           <ul>
             <li>Consolidated a decade of fragmented SCOPE documentation and training into a single digital hub serving 50K+ active users, and built the storage/compute dashboards whose insight steered the global rollout of GDPR compliance data centers across Eastern Europe and China.</li>
           </ul>
@@ -552,7 +555,7 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">May 2017 – Aug 2017<span>San Diego, CA</span></p>
           <h3>Intuit<em>Technical Product Manager Intern</em></h3>
-          <p class="core"><b>Core Achievement:</b> co-invented an ML system that predicts repayment probability from historical account data and automatically routes each transaction in real time to the highest-yield payment method — granted as U.S. Patent 10,956,925 B1.</p>
+          <p class="core"><b>Core Achievement:</b> Co-invented an ML system that predicts repayment probability from historical account data and automatically routes each transaction in real time to the highest-yield payment method — granted as U.S. Patent 10,956,925 B1.</p>
             <ul>
               <li>Led cross-functional R&amp;D teams of engineers, designers, researchers, and legal counsel on machine-learning initiatives, taking FinTech product concepts through iterative prototyping, user testing, and A/B testing.</li>
             </ul>
@@ -564,7 +567,7 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">June 2015 – Dec 2015<span>Victor, NY</span></p>
           <h3>IDI Billing Solutions<em>Software / Quality Assurance Engineer</em></h3>
-          <p class="core"><b>Core Achievement:</b> built Hal0, a complete server interface dashboard, and took the lead role defining and implementing QA processes across multiple web-service platforms.</p>
+          <p class="core"><b>Core Achievement:</b> Built Hal0, a complete server interface dashboard, and took the lead role defining and implementing QA processes across multiple web-service platforms.</p>
             <ul>
               <li>Wrote, executed and maintained the automation test suite for CostGuard, a client/server telecom billing platform, self-teaching PowerShell and C# to do it.</li>
             </ul>
@@ -576,7 +579,7 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">Aug 2014 – June 2015<span>Rochester, NY</span></p>
           <h3>Rochester Institute of Technology<em>Webmaster</em></h3>
-          <p class="core"><b>Core Achievement:</b> sole developer of the front-end and back-end for two RIT facilities — the Simone Center for Innovation and Entrepreneurship, and the F&amp;A project, Behind the Bricks.</p>
+          <p class="core"><b>Core Achievement:</b> Sole developer of the front-end and back-end for two RIT facilities — the Simone Center for Innovation and Entrepreneurship, and the F&amp;A project, Behind the Bricks.</p>
             <ul>
               <li>Managed and maintained the databases, functionality, security and uptime of both platforms.</li>
             </ul>
@@ -588,7 +591,7 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">Jan 2014 – July 2014<span>Boston, MA</span></p>
           <h3>EnerNOC<em>Software Engineer Intern</em></h3>
-          <p class="core"><b>Core Achievement:</b> hardware and software R&amp;D on PowerTalk, a real-time XMPP communication hub for smart-meter devices, including its online implementation in Play Framework, Scala and Java.</p>
+          <p class="core"><b>Core Achievement:</b> Hardware and software R&amp;D on PowerTalk, a real-time XMPP communication hub for smart-meter devices, including its online implementation in Play Framework, Scala and Java.</p>
             <ul>
               <li>Maintained the team's GitHub repositories, picking up JavaScript, CoffeeScript, Scala and XMPP on the job.</li>
             </ul>
@@ -600,7 +603,7 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">Feb 2013 – May 2016<span>Rochester, NY</span></p>
           <h3>Rochester Institute of Technology<em>Social Media Analyst</em></h3>
-          <p class="core"><b>Core Achievement:</b> built an engaged online community across Facebook, Reddit and Twitter to over 9,000 followers through original content.</p>
+          <p class="core"><b>Core Achievement:</b> Built an engaged online community across Facebook, Reddit and Twitter to over 9,000 followers through original content.</p>
             <ul>
               <li>Owned analytics and content strategy across institutional channels, reporting engagement and reach to university stakeholders.</li>
             </ul>
@@ -612,7 +615,10 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">June 2011 – July 2013<span>Jersey City, NJ</span></p>
           <h3>Liberty Science Center<em>Interpretation Associate</em></h3>
-          <p>Science demonstrations and exhibit interpretation for public audiences of every age.</p>
+          <p class="core"><b>Core Achievement:</b> Science demonstrations and exhibit interpretation for public audiences of every age.</p>
+              <ul>
+                <li>Ran live floor demonstrations and fielded exhibit questions from school groups through adult visitors, pitching the same material differently for each audience.</li>
+              </ul>
         </div>
       </article>
 
@@ -621,7 +627,10 @@ footer p{margin:0}
         <div class="tl-card">
           <p class="tl-when">Oct 2010 – June 2011<span>New Jersey</span></p>
           <h3>TranSystems<em>Project Assistant Intern</em></h3>
-          <p>Documentation, drawings and field data for state Department of Transportation infrastructure projects.</p>
+          <p class="core"><b>Core Achievement:</b> Documentation, drawings and field data for state Department of Transportation infrastructure projects.</p>
+              <ul>
+                <li>Supported project engineers with drawing revisions, field measurement, and the document control that kept submittals moving on schedule.</li>
+              </ul>
         </div>
       </article>
     </div>
